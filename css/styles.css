@@ -149,7 +149,7 @@ p { margin: 0; }
 @keyframes rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 .wave-wrap { position: relative; height: 64px; overflow: hidden; margin-bottom: -1px; }
 .wave-wrap .wave { position: absolute; bottom: 0; left: 0; width: 200%; height: 100%; }
-@media (max-width: 900px) { .faq { margin-top: 48px; max-width: 760px; display: grid; gap: 10px; }
+.faq { margin-top: 48px; max-width: 760px; display: grid; gap: 10px; }
 .faq h3 { font-size: 1.6rem; margin-bottom: 8px; }
 .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 0 20px; transition: border-color .2s; }
 .faq details[open] { border-color: var(--sea); }
@@ -277,7 +277,8 @@ footer .mono { font-family: var(--mono); font-size: 0.78rem; }
 
 /* Pantallas: una sección a la vez */
 .view { min-height: calc(100dvh - 120px); }
-@keyframes dive { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+.view.entering { animation: fade-view 0.3s ease; }
+@keyframes fade-view { from { opacity: 0; } to { opacity: 1; } }
 .nav a[aria-current="page"] { background: var(--shore); color: var(--ink); }
 .nav a.cta[aria-current="page"] { background: var(--sea); color: #fff; }
 .gauge { font-family: var(--mono); font-size: 0.78rem; color: var(--sea); display: inline-flex; align-items: center; gap: 8px; margin-left: auto; white-space: nowrap; }
