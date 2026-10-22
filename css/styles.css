@@ -149,18 +149,7 @@ p { margin: 0; }
 @keyframes rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 .wave-wrap { position: relative; height: 64px; overflow: hidden; margin-bottom: -1px; }
 .wave-wrap .wave { position: absolute; bottom: 0; left: 0; width: 200%; height: 100%; }
-.quotes-head { margin-top: 48px; }
-.ph-note { font-family: var(--mono); font-size: 0.72rem; color: #f2b8a2 !important; letter-spacing: 0.06em; text-transform: uppercase; }
-.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.quote { margin: 0; display: grid; gap: 14px; align-content: start; padding: 22px; border-radius: 18px; background: linear-gradient(160deg, rgba(127,209,199,0.12), rgba(231,242,244,0.03)); border: 1px solid rgba(231,242,244,0.12); color: var(--on-deep); }
-.qmark { font-family: var(--display); font-size: 3rem; line-height: 0.6; height: 22px; color: #7fd1c7; }
-.quote blockquote { margin: 0; font-family: var(--display); font-size: 1.12rem; line-height: 1.45; }
-.quote figcaption { display: flex; gap: 10px; align-items: center; margin-top: auto; }
-.quote figcaption strong { display: block; font-size: 0.95rem; }
-.quote figcaption small { color: var(--on-deep-soft); font-size: 0.82rem; }
-.avatar { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: #f2a078; color: #12324a; font-family: var(--display); }
-@media (max-width: 900px) { .quotes { grid-template-columns: 1fr; } }
-.faq { margin-top: 48px; max-width: 760px; display: grid; gap: 10px; }
+@media (max-width: 900px) { .faq { margin-top: 48px; max-width: 760px; display: grid; gap: 10px; }
 .faq h3 { font-size: 1.6rem; margin-bottom: 8px; }
 .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 0 20px; transition: border-color .2s; }
 .faq details[open] { border-color: var(--sea); }
