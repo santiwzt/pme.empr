@@ -119,11 +119,13 @@ document.addEventListener("click", e => {
   const id = a.getAttribute("href").slice(1);
   if (!views.some(v => v.id === id)) return;
   e.preventDefault();
-  try { history.pushState(null, "", "#" + id); } catch (err) {}
+  // La dirección queda siempre limpia, así un link copiado abre en el inicio
+  try { history.pushState({ view: id }, "", location.pathname + location.search); } catch (err) {}
   show(id, true);
 });
-addEventListener("popstate", () => show(location.hash.slice(1) || "inicio", true));
-show(location.hash.slice(1) || "inicio", false);
+addEventListener("popstate", e => show((e.state && e.state.view) || "inicio", true));
+try { history.replaceState({ view: "inicio" }, "", location.pathname + location.search); } catch (err) {}
+show("inicio", false);
 
 // Contadores del inicio
 function runCounters() {
