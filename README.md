@@ -20,7 +20,7 @@ logo/               Logo e ícono, versión clara y oscura (SVG)
 
 Casi todo se cambia desde `data/*.json`, sin tocar el HTML.
 
-- **Cursos:** para habilitar pagos más adelante, completar `precio` (por ejemplo `"$25.000"`) y `linkPago` (link de Mercado Pago, Stripe, etc.) y aparece el botón "Inscribirme".
+- **Cursos:** `tema` elige la ilustración (evaluacion, lectoescritura, ejecutivas, juego, supervision, familias). Para habilitar pagos más adelante, completar `precio` (por ejemplo `"$25.000"`) y `linkPago` (link de Mercado Pago, Stripe, etc.) y aparece el botón "Inscribirme".
 - **Videos:** poner en `url` el link de YouTube o Instagram de cada video.
 - Los textos de ejemplo en el HTML están marcados con la clase `ph` (se ven resaltados en coral).
 
