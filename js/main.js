@@ -1,3 +1,4 @@
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 // Catálogo de cursos. Para habilitar pagos más adelante: completar "precio" y "linkPago" en cada curso.
 // Los datos viven en data/*.json. Para habilitar pagos: completar "precio" y "linkPago" en data/cursos.json.
 let CURSOS = [];
@@ -58,7 +59,10 @@ getJSON("data/encuentros.json").then(es => {
 
 getJSON("data/contacto.json").then(c => {
   if (c.email) document.getElementById("c-mail").textContent = c.email;
-  if (c.whatsapp) document.getElementById("c-wa").textContent = c.whatsapp;
+  if (c.whatsapp) {
+    document.getElementById("c-wa").textContent = c.whatsapp;
+    document.querySelector(".wa-float").href = "https://wa.me/" + c.whatsapp.replace(/\D/g, "");
+  }
   if (c.instagram) document.getElementById("c-ig").textContent = c.instagram;
 }).catch(() => {});
 
@@ -81,8 +85,8 @@ views.forEach((v, i) => {
   const prev = views[i - 1], next = views[i + 1];
   const pager = document.createElement("div");
   pager.className = "pager";
-  pager.innerHTML = (prev ? `<a class="prev" href="#${prev.id}"><small>↑ Subir a ${prev.dataset.depth}</small><strong>${prev.dataset.name}</strong></a>` : "") +
-    (next ? `<a class="next" href="#${next.id}"><small>Bajar a ${next.dataset.depth} ↓</small><strong>${next.dataset.name}</strong></a>` : `<a class="next" href="#inicio"><small>Volver a superficie ↑</small><strong>Inicio</strong></a>`);
+  pager.innerHTML = (prev ? `<a class="prev" href="#${prev.id}"><small>← Anterior</small><strong>${prev.dataset.name}</strong></a>` : "") +
+    (next ? `<a class="next" href="#${next.id}"><small>Siguiente →</small><strong>${next.dataset.name}</strong></a>` : `<a class="next" href="#inicio"><small>Volver al inicio</small><strong>Inicio</strong></a>`);
   const holder = document.createElement("div");
   holder.className = "pager-wrap";
   holder.appendChild(pager);
@@ -92,8 +96,8 @@ function show(id, animate) {
   const target = views.find(v => v.id === id) || views[0];
   views.forEach(v => { v.hidden = v !== target; v.classList.remove("entering"); });
   if (animate) { void target.offsetWidth; target.classList.add("entering"); }
+  if (target.id === "inicio") runCounters();
   document.querySelectorAll(".nav a, .tabbar a").forEach(a => { if (a.getAttribute("href") === "#" + target.id) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
-  document.getElementById("gauge-text").textContent = `${target.dataset.depth} · ${target.dataset.name}`;
   window.scrollTo(0, 0);
 }
 document.addEventListener("click", e => {
@@ -107,6 +111,20 @@ document.addEventListener("click", e => {
 });
 addEventListener("popstate", () => show(location.hash.slice(1) || "inicio", true));
 show(location.hash.slice(1) || "inicio", false);
+
+// Contadores del inicio
+function runCounters() {
+  document.querySelectorAll("[data-count]").forEach(el => {
+    const end = +el.dataset.count, pre = el.dataset.prefix || "";
+    if (reduceMotion) { el.textContent = pre + end; return; }
+    const t0 = performance.now(), dur = 1200;
+    const step = now => { const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = pre + Math.round(end * e); if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  });
+}
+
+// Sombra del encabezado al hacer scroll
+addEventListener("scroll", () => document.querySelector(".top").classList.toggle("scrolled", scrollY > 8), { passive: true });
 
 // Menú móvil
 const menuBtn = document.getElementById("menu-btn"), nav = document.getElementById("nav");
@@ -164,7 +182,7 @@ document.getElementById("contact-form").addEventListener("submit", e => {
       for (let x = 0; x <= W + 4; x += 4) ctx.lineTo(x, H * L.y + Math.sin((x / L.len) * Math.PI * 2 + t * L.speed) * L.amp + Math.sin(x / 47 + t * 0.7) * 2);
       ctx.lineTo(W, H); ctx.closePath(); ctx.fill();
       // peces entre capas
-      fish.filter(f => Math.abs(f.y - L.y) < 0.03 && i > 1).forEach(f => {
+      [].filter(f => Math.abs(f.y - L.y) < 0.03 && i > 1).forEach(f => {
         const fx = ((f.x * W) % (W + 40)) - 20, fy = H * (f.y + 0.03);
         ctx.fillStyle = "rgba(255, 250, 241, 0.75)";
         ctx.beginPath(); ctx.ellipse(fx, fy, 7, 3.2, 0, 0, Math.PI * 2); ctx.fill();
@@ -173,7 +191,7 @@ document.getElementById("contact-form").addEventListener("submit", e => {
     });
   }
   function tick() {
-    t += 0.02;
+    t += 0.008;
     fish.forEach(f => { f.x += f.s * f.dir; if (f.x > 1.1) f.x = -0.1; if (f.x < -0.1) f.x = 1.1; });
     draw(); requestAnimationFrame(tick);
   }
