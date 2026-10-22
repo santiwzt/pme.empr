@@ -1,0 +1,86 @@
+[
+  {
+    "titulo": "Introducción a la evaluación psicopedagógica",
+    "nivel": "Inicial",
+    "semanas": 6,
+    "modalidad": "Online",
+    "inicio": "Marzo 2027",
+    "desc": "Instrumentos, entrevistas y armado del informe, paso a paso.",
+    "precio": null,
+    "linkPago": null,
+    "color": [
+      "#e9c98f",
+      "#2a9d8f"
+    ]
+  },
+  {
+    "titulo": "Lectoescritura: detección e intervención",
+    "nivel": "Intermedio",
+    "semanas": 8,
+    "modalidad": "Online",
+    "inicio": "Abril 2027",
+    "desc": "Cómo identificar dificultades tempranas y diseñar estrategias de trabajo.",
+    "precio": null,
+    "linkPago": null,
+    "color": [
+      "#8fd0cf",
+      "#1f6f8b"
+    ]
+  },
+  {
+    "titulo": "Funciones ejecutivas en el aula y el consultorio",
+    "nivel": "Intermedio",
+    "semanas": 6,
+    "modalidad": "Online + 2 encuentros en vivo",
+    "inicio": "Mayo 2027",
+    "desc": "Atención, memoria de trabajo y planificación, con actividades listas para usar.",
+    "precio": null,
+    "linkPago": null,
+    "color": [
+      "#f2b8a2",
+      "#1f6f8b"
+    ]
+  },
+  {
+    "titulo": "El juego como herramienta terapéutica",
+    "nivel": "Inicial",
+    "semanas": 4,
+    "modalidad": "Online",
+    "inicio": "Junio 2027",
+    "desc": "Juegos reglados, simbólicos y de mesa para evaluar e intervenir.",
+    "precio": null,
+    "linkPago": null,
+    "color": [
+      "#f3e1b6",
+      "#e07a5f"
+    ]
+  },
+  {
+    "titulo": "Supervisión clínica: formación para formadores",
+    "nivel": "Avanzado",
+    "semanas": 10,
+    "modalidad": "Online en vivo",
+    "inicio": "Agosto 2027",
+    "desc": "Para profesionales con experiencia que quieren acompañar a colegas.",
+    "precio": null,
+    "linkPago": null,
+    "color": [
+      "#3d8fb0",
+      "#0b2a40"
+    ]
+  },
+  {
+    "titulo": "Trabajo con familias y escuelas",
+    "nivel": "Avanzado",
+    "semanas": 6,
+    "modalidad": "Online",
+    "inicio": "Septiembre 2027",
+    "desc": "Devoluciones, informes y reuniones interdisciplinarias que suman.",
+    "precio": null,
+    "linkPago": null,
+    "color": [
+      "#b9e0d8",
+      "#2a9d8f"
+    ]
+  }
+]

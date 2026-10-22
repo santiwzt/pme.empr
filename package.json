@@ -1,0 +1,9 @@
+{
+  "name": "pamela-rosales-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio web de Pamela Rosales: clases, cursos, reuniones y videos para profesionales.",
+  "scripts": {
+    "start": "npx --yes serve@14.2.4 ."
+  }
+}
