@@ -26,22 +26,7 @@ img { max-width: 100%; }
   --body: "Figtree", "Segoe UI", system-ui, sans-serif;
   --mono: "Figtree", "Segoe UI", system-ui, sans-serif;
   --wrap: 1120px;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --sand: #1b2a33; --sand-deep: #22343f; --shore: #173240;
-    --ink: #e9f1f2; --ink-soft: #a7bcc5; --sea: #5fb3cf; --reef: #4cc2b2; --coral: #ef9a82;
-    --deep: #0a2233; --abyss: #05131e; --foam: #13232d; --card: #1f313c;
-    --line: rgba(233, 241, 242, 0.14); --on-deep: #e7f2f4; --on-deep-soft: #9dbcc6;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --sand: #1b2a33; --sand-deep: #22343f; --shore: #173240;
-  --ink: #e9f1f2; --ink-soft: #a7bcc5; --sea: #5fb3cf; --reef: #4cc2b2; --coral: #ef9a82;
-  --deep: #0a2233; --abyss: #05131e; --foam: #13232d; --card: #1f313c;
-  --line: rgba(233, 241, 242, 0.14); --on-deep: #e7f2f4; --on-deep-soft: #9dbcc6;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
